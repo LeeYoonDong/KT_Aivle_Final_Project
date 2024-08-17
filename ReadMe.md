@@ -111,3 +111,120 @@
 1. AI 모델 성능 지속적 개선
 2. 타 행정 시스템과의 연계 확대
 3. 사용자 피드백 기반 서비스 개선
+
+
+======================================
+
+# INTEGRATED CUSTOMER PROCESSING SYSTEM
+
+## Project Overview
+This project is an integrated civil complaint handling system that operates in the DaaS (Desktop as a Service) environment of the Ministry of Public Administration and Security. It collects, stores, analyzes, and provides intelligent civil complaint counseling services and security control systems based on the legal information. Its main functions include the establishment of a legal database, AI-based legal classification, chatbot interface, document processing using OCR, and real-time security control dashboard.
+
+## System Architecture
+1. **Data Hierarchy**
+- Statutory Database (MySQL)
+- Security Log Database
+
+2. **Application layer**
+- Statutory Data Collection and Management Module
+- AI-based legal classification engine
+- Natural language processing chatbot engine
+- OCR and Personal Information Masking Module
+- Real-time Security Monitoring Engine
+
+3. **Hierarchy of presentations**
+- Integrated Complaint Handling Interface (Based on PyQt5)
+- Security Control Dashboard (Based on Streamlit)
+
+## Key components
+
+1. **Legislation database (law_DB.py)**
+- National Legal Information Center API for Statutory Data Collection
+- Save to MySQL database in a structured form
+- Managing Statutory Basic Information and Articles Data
+
+2. **Intelligent civil service (LawChatBot.py )**
+- Utilize BERT-based legal classification model
+- Generating natural language responses using OpenAI GPT
+- Providing relevant statutory information for user queries
+
+3. **Integrated Complaint Handling Interface (main.py )**
+- Integrating intelligent civil service and document processing capabilities
+- Upload and Auto-Analyze Complaint
+
+4. **Document processing and privacy (OcrMsk.py )**
+- Text extraction of complaints documents using OCR
+- Automatic detection and masking of personal information
+
+5. **Real-time Security Control Dashboard (SecurityControlDashboard.py )**
+- Monitor real-time security health of DaaS environments
+- Provides comprehensive information, including user activities, system resources, and security events
+- Visualize daily/monthly user trends, security policy compliance, etc
+
+6. **Learning AI models (train_model.py)**
+- Learning and optimizing BERT-based legal classification models
+- Loading and preprocessing statutory data from the database
+- Evaluate and improve model performance
+
+## Key Features and Features
+1. **Intelligent Complaint Consultation**
+- AI-based legal analysis and relevant information
+- Generating customized answers through natural language processing
+
+2. **Automatic handling of complaints documents**
+- Digitize documents with OCR
+- Automatic detection and masking of personal information
+
+3. **Real-time security control**
+- Monitor comprehensive security health of DaaS environments
+- Real-time anomaly detection and notification
+
+4. **Supports data-driven decision-making**
+- Analysis of Civil Complaint Handling Status and Trends
+- Provides key indicators such as security policy compliance
+
+## System Requirements
+- DaaS(Desktop as a Service) 환경
+- Python 3.x
+- MySQL server
+- PyTorch, Transformers (Hugging Face)
+- OpenAI API
+- PyQt5, Streamlit
+- EasyOCR
+- Other required libraries: pandas, numpy, sklearn, configparser, etc
+
+## Installation and Settings
+1. Install the required Python package:
+```
+pip install -r requirements.txt
+```
+2. MySQL database settings
+3. Enter database and API key information in the file 'config.ini'
+4. Statutory data collection and database construction:
+```
+python law_DB.py
+```
+5. Learn the legal classification model:
+```
+python train_model.py
+```
+
+## How to use it
+1. Integrated Complaint Handling System Runs:
+```
+python main.py
+```
+2. Run the Security Control Dashboard:
+```
+streamlit run SecurityControlDashboard.py
+```
+
+## Security and compliance
+- Compliance with Personal Information Protection Act
+- Applying the Security Policy of the Ministry of Public Administration and Security
+- Real-time security monitoring and threat response
+
+## Future plans
+1. Continuous improvement in AI model performance
+2. Expansion of linkage with other administrative systems
+3. Improve user feedback-based service
